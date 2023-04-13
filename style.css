@@ -1,0 +1,172 @@
+  .body {
+    font-family: 'Cormorant Garamond';
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .header {
+    display: flex;
+    width: 100%;
+    height: 30%;
+    background: #8072e6;
+  }
+
+  .header__main-image {
+    background-image: url(./static/meimage.jpg);
+    height: 100%;
+    width: 220px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .header__main-content {
+    height: 100%;
+    padding-top: 0px;
+    padding-left: 250px;
+  }
+
+  .header__main-text {
+    font-size: 50px;
+    color: #f3e7dc;
+  }
+
+  .header__vk-link {
+    background-image: url(./static/vk.jpg);
+    width: 110px;
+    height: 130px;
+    margin-top: 50px;
+    margin-left: 300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .main {
+    display: flex;
+    width: 100%;
+    height: 40%;
+  }
+
+  .main__about-section {
+    margin-top: 0;
+    background: rgb(188, 193, 191);
+    width: 60%;
+    height: 100%;
+    padding-left: auto;
+  }
+
+  .main__title {
+    padding-left: 20px;
+    height: 20%;
+    font-size: 40px;
+    color: #41413e;
+  }
+
+  .main__about-content {
+    padding-left: 20px;
+    font-family: 'Cormorant Garamond';
+    font-size: 30px;
+    color: #41413e;
+  }
+
+  .main__skills {
+    margin: 0;
+    background: rgb(188, 193, 191);
+    width: 40%;
+    height: 100%;
+  }
+
+  .main__skills-content {
+    font-size: 25px;
+    font-family: 'Cormorant Garamond';
+    color: #41413e;
+    padding-left: 20px;
+    margin-top: 15px;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 30%;
+    background: #8072e6;
+  }
+
+  .footer__text {
+    text-align: center;
+    color: #f3e7dc;
+    font-size: 20px;
+    padding-top: 15px;
+    font-family: 'Cormorant Garamond';
+  }
+
+  @media only screen and (max-width: 750px) {
+    .header {
+      height: 20%;
+    }
+  
+    .header__main-image {
+     width:100px;
+    }
+    
+    .header__main-content {
+      padding-top: 20px;
+      padding-left: 25px;
+    }
+  
+    .header__main-text {
+      font-size: 14px;
+      color: #f3e7dc;
+    }
+  
+    .header__vk-link {
+      width: 30px;
+      height: 30px;
+      margin-top: 35px;
+      margin-left: 8px;
+    }
+  
+    .main {
+      display: flex;
+      flex-direction: column-reverse;
+      width: 100%;
+      height: 60%;
+    }
+  
+    .main__about-section {
+      width: 100%;
+      height: 50%;
+    }
+  
+    .main__title {
+      padding-left: 20px;
+      height: 10%;
+      font-size: 14px;
+    }
+  
+    .main__about-content {
+      padding-left: 20px;
+      font-size: 13px;
+    }
+  
+    .main__skills {
+      width: 100%;
+      height: 50%;
+    }
+  
+    .main__skills-content {
+      margin-top: 5px;
+      font-size: 14px;
+      padding-left: 20px;
+    }
+  
+    .footer {
+      height: 20%;
+    }
+  
+    .footer__text {
+      padding-top: 5px;
+      font-size: 14px;
+    }
+  }
+  
