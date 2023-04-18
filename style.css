@@ -18,6 +18,7 @@
     width: 220px;
     background-size: contain;
     background-repeat: no-repeat;
+    border-radius: 0%;
   }
   
   .header__main-content {
