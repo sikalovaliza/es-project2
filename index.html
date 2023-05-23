@@ -1,47 +1,80 @@
 <!DOCTYPE html>
-<html lang="ru"> 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Страница-портфолио">
-    <meta name="keywords" content="HTML, CSS">
-    <meta name="author" content="Елизавета Сикалова">
-    <meta property="og:url" content="https://front-project.com">
-    <meta property="og:title" content="Портфолио">
-    <meta property="og:description" content="Портфолио Елизаветы Сикаловой">
-    <meta property="og:image" content="./static/meimage.jpg">
-    <link rel="stylesheet" href="style.css">
-    <title>Портфолио Елизавета Сикалова</title>
-  </head>
-  <body class="body">
-    <header class="header">
-      <div class="header__main-image"></div>
-      <section class="header__main-content">
-        <h2 class="header__main-text">Сикалова Елизавета</h2>
-        <h2 class="header__main-text">Студентка МФТИ ВШПИ</h2>
-      </section>
-      <a class="header__vk-link" href="https://vk.com/elsikalova" title="ссылка на вк"></a>
-    </header>
-    <main class="main">
-      <section class="main__about-section">
-        <h2 class="main__title">Обо мне</h2>
-        <p class="main__about-content">
-            Мне 18 лет, я изучаю различные языки программирования такие как: C++, Python, HTML, CSS. Кроме изучения предметов своей специальности, так же активно участвую в социальной жизни вуза. Например, развиваю волонтерское движение.
-        </p>
-      </section>
-      <section class="main__skills">
-        <h2 class="main__title">Навыки</h2>
-        <ul>
-          <li class="main__skills-content">C++</li>
-          <li class="main__skills-content">Python</li>
-          <li class="main__skills-content">Ведение социальных сетей</li>
-        </ul>
-      </section>
-    </main>
-    <footer class="footer">
-      <h2 class="footer__text">Как ещё меня можно найти?</h2>
-      <a class="footer__text" href="mailto:sikalova.liza@mail.ru">email: sikalova.liza@mail.ru</a>
-      <a class="footer__text" href="tel:+79892124798">телефон: +7 (989) 212-47-98</a>
-    </footer>
-  </body>
+<html>
+<head>
+ <meta charset="utf-8">
+ <title>Gallery Page</title>
+ <link rel="stylesheet" href="style.css">
+ <link rel="icon" src="static/photo1.jpg">
+</head>
+<body class="body">
+  <div class="rain-overlay">
+    <div class="raindrop"></div>
+    <div class="raindrop"></div>
+    <div class="raindrop"></div>
+    <div class="raindrop"></div>
+    <div class="raindrop"></div>
+    <div class="raindrop"></div>
+    <div class="raindrop"></div>
+    <div class="raindrop"></div>
+    <div class="raindrop"></div>
+    <div class="raindrop"></div>
+  </div>
+  <div class="head">
+   <h1 class="head__text">Портфолио Сикаловой Елизаветы</h1>
+ </div>
+ <main class="main">
+  <section class="main__about-section">
+    <h2 class="main__title">Обо мне</h2>
+    <p class="main__about-content">
+        Мне 18 лет, я изучаю различные языки программирования такие как: C++, Python, HTML, CSS. Кроме изучения предметов своей специальности, так же активно участвую в социальной жизни вуза. Например, развиваю волонтерское движение.
+    </p>
+  </section>
+  <section class="main__skills">
+    <h2 class="main__title">Навыки</h2>
+    <ul>
+      <li class="main__skills-item">C++</li>
+      <li class="main__skills-item">Python</li>
+      <li class="main__skills-item">Ведение социальных сетей</li>
+    </ul>
+  </section>
+</main>
+<div class="popup-message">
+  <div class="popup-message__content" id="popup-message__content">
+    <button class="popup-message__close" id="popup-message__close">X</button>
+    <p class="popup-message__text">Приятного просмотра!</p>
+  </div>
+</div>
+<div class="gallery">
+  <img src="static/photo1.jpg" alt="Photo 1" class="gallery__item">
+  <img src="static/photo2.jpg" alt="Photo 2" class="gallery__item">
+  <img src="static/photo3.jpg" alt="Photo 3" class="gallery__item">
+  <img src="static/photo4.jpg" alt="Photo 4" class="gallery__item">
+ </div>
+<div class="popup" id="popup">
+  <img src="" alt="" class="popup__image" id="popupImage">
+  <button class="popup__button popup__button--prev" id="prevButton">&lt;</button>
+  <button class="popup__button popup__button--next" id="nextButton">&gt;</button>
+ </div>
+<footer class="footer">
+    <button class="open-popup style_button">Открыть форму</button>
+    <div class="modal">
+        <div class="modal__content">
+          <button class="close-btn">&times;</button>
+          <div class="form__wrapper">
+            <form name="contactForm">
+              <input type="text" class="form__input" name="name" placeholder="Введите ваше имя" required>
+              <input type="email" class="form__input" name="email" placeholder="Введите вашу электронную почту" required>
+              <input type="text" class="form__input" name="phone" placeholder="Введите ваш номер телефона" required>
+              <textarea class="form__input" name="message" placeholder="Введите ваше сообщение" required></textarea>
+              <button class="form__button">Отправить</button>
+              <p class="form__successMessage">Ваше сообщение успешно отправлено!</p>
+            </form>
+          </div>
+        </div>
+    </div>
+    <button class="style_button" id="start-rain">Начать дождь</button>
+    <button class="style_button" id="change-style">Изменить стиль</button>
+  </footer> 
+  <script src="script.js"></script>
+</body>
 </html>
