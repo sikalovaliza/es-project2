@@ -67,9 +67,9 @@
     <button class="open-popup style_button">Открыть форму</button>
     <div class="modal">
         <div class="modal__content">
-          <button class="close-btn">&times;</button>
+          <button class="close-btn popup-message__close">X</button>
           <div class="form__wrapper">
-            <form name="contactForm">
+            <form name="contactForm" novalidate>
               <input type="text" class="form__input" name="name" placeholder="Введите ваше имя" required>
               <input type="email" class="form__input" name="email" placeholder="Введите вашу электронную почту" required>
               <input type="text" class="form__input" name="phone" placeholder="Введите ваш номер телефона" required>
@@ -80,7 +80,7 @@
           </div>
         </div>
     </div>
-    <button class="style_button" id="start-rain">Начать дождь</button>
+    <button class="style-rain_button" id="start-rain">Начать дождь</button>
     <button class="style_button" id="change-style">Изменить стиль</button>
     <div class="footer__information">
       <h2 class="footer__text">Как ещё меня можно найти?</h2>

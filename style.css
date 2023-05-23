@@ -121,6 +121,7 @@
   }
 
   .main__about-content {
+    padding-left: 2vw;
     font-size: 0.5em;
   }
 
@@ -150,11 +151,12 @@
     background: rgba(77, 97, 174, 0);
   }
 
-  .popup_message-close {
-    height: 10%;
+  .popup-message__close {
+    height: 30%;
     margin-top: 0%;
     margin-right: 0%;
     cursor: pointer;
+    background-color: rgb(170, 175, 251);
     font-size: 18px;
     font-weight: bold;
   }
@@ -256,6 +258,19 @@
     width: 19.3%;
     z-index: -1;
   }
+
+  .style-rain_button {
+    margin-top: 10vh;
+    height: 4vh;
+    background-color: #212124;
+    font-size: 0.8rem;
+    color: rgb(255, 251, 251);
+    margin-left: 10.1%;
+    margin-right: 0%;
+    padding-right: 0%;
+    width: 19.3%;
+    z-index: -1;
+  }
   
   .modal {
     display: none;
@@ -287,13 +302,24 @@
     align-items: center;
   }
 
+  .clode-btn {
+    height: 30%;
+    margin-top: 0%;
+    margin-right: 0%;
+    cursor: pointer;
+    background-color: rgb(170, 175, 251);
+    font-size: 18px;
+    font-weight: bold;
+  }
+
   .form__input {
+    background-color: rgba(49, 124, 216, 0.6);
     width: 100%;
-    margin-bottom: 10px;
-    padding: 10px;
+    margin-top: 2vh;
+    padding: 1vh;
     box-shadow: none;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 1rem;
   }
 
@@ -308,7 +334,7 @@
   }
   
   .form__button:disabled {
-    background-color: grey;
+    background-color: rgb(119, 119, 119);
     cursor: not-allowed;
   }
 
@@ -387,6 +413,11 @@
 
     .style_button {
       font-size: 0.6rem;
+      margin-left: 20%;
+    }
+
+    .style-rain_button {
+      display: none;
     }
   }
 

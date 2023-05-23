@@ -73,6 +73,27 @@ const successMessage = document.querySelector('.form__successMessage');
 const phoneRegex = /^(\+7|8)?[\s\-]?\(?(\d{3})\)?[\s\-]?(\d{3})[\s\-]?(\d{2})[\s\-]?(\d{2})$/;
 const textRegex = /^[A-Za-zА-Яа-яЁё\s]+$/;
 
+function highlightInput(input, isValid) {
+  if (isValid) {
+    input.style.border = '';
+  } else {
+    input.style.border = '1px solid red'; 
+  }
+}
+
+function isEmailValid(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  if (!emailRegex.test(email)) {
+    return false;
+  }
+  const lastDotIndex = email.lastIndexOf('.');
+  const domainLength = email.length - lastDotIndex - 1;
+  if (domainLength < 2) {
+    return false;
+  }
+  return true;
+}
+
 openBtn.addEventListener('click', function() {
   modal.style.display = 'block';
 });
@@ -110,20 +131,35 @@ form.addEventListener('submit', (event) => {
   const emailInput = form.elements.email;
   const phoneInput = form.elements.phone;
   const messageInput = form.elements.message;
-
+  
   if (!phoneRegex.test(phoneInput.value)) {
+    highlightInput(phoneInput, false);
     alert('Введите корректный номер телефона!');
     return;
   }
-  const emailIsValid = emailInput.checkValidity();
+  const emailIsValid = isEmailValid(emailInput.value);
   if (!emailIsValid) {
+    highlightInput(emailInput, false);
     alert('Введите корректный адрес электронной почты!');
     return;
   }
-  if (!textRegex.test(nameInput.value) || !textRegex.test(messageInput.value)) {
+  const nameIsValid = textRegex.test(nameInput.value);
+  const messageIsValid = textRegex.test(messageInput.value);
+  if (!nameIsValid) {
+    highlightInput(nameInput, false);
     alert('Введите только русские или английские символы!');
     return;
   }
+  if (!messageIsValid ) {
+    highlightInput(messageInput , false);
+    alert('Введите только русские или английские символы!');
+    return;
+  }
+  highlightInput(emailInput, true);
+  highlightInput(phoneInput, true);
+  highlightInput(nameInput, true);
+  highlightInput(messageInput , true);
+
   submitButton.disabled = true;
   submitButton.textContent = 'Отправка...';
 
@@ -175,43 +211,33 @@ button.addEventListener('click', () => {
   form__button.classList.toggle('black-and-white');
 });
 
-//обработка сообщения
 const popup_messageContent = document.querySelector('.popup-message__content');
 const popup_messageClose = document.querySelector('.popup-message__close');
-let popupCount = sessionStorage.getItem('popupCount');
+let popupDisplayed = sessionStorage.getItem('popupDisplayed') === 'true';
 
 function showPopup_message() {
-  console.log(sessionStorage.getItem('popupCount'))
+  console.log(sessionStorage.getItem('popupDisplayed'))
   popup_messageContent.parentNode.style.display = 'flex';
-  popupCount = Number(sessionStorage.getItem('popupCount')) + 1;
-  sessionStorage.setItem('popupCount', popupCount);
+  sessionStorage.setItem('popupDisplayed', true);
 }
 
 function hidePopup_message() {
   popup_messageContent.parentNode.style.display = 'none';
-  sessionStorage.setItem('popupIsClosed', true);
 }
 
-console.log(123, popupCount);
-
-if (Number(popupCount) === 0) {
-  setTimeout(showPopup_message, 30000);
-  sessionStorage.setItem('popupCount', 0);
-}
-
-const popupIsClosed = sessionStorage.getItem('popupIsClosed');
-
-if (!popupIsClosed && (popupCount === 0 || popupCount === 1)) {
-  showPopup_message();
+if (!popupDisplayed) {
+  setTimeout(showPopup_message, 3000);
 }
 
 popup_messageClose.addEventListener('click', (event) => {
   hidePopup_message();
-  console.log(sessionStorage.getItem('popupCount'))
+  console.log(sessionStorage.getItem('popupDisplayed'))
 }, true);
 
 document.addEventListener('click', (event) => {
-  if (!event.target.closest('.popup-massage__content') && popup_messageContent.parentNode.style.display === 'flex') {
+  if (!event.target.closest('.popup-message__content') && popup_messageContent.parentNode.style.display === 'flex') {
     hidePopup_message();
   }
 }, true);
+
+
